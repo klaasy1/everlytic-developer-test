@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    // return view('welcome');
+    return redirect(route('user'));
 });
+Route::get('user', 'UserController@index')->name('user');
+Route::post('user/{id}/delete', 'UserController@destroy')->name('user.delete');
+Route::post('user/store', 'UserController@store')->name('user.store');
